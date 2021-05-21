@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>KTPC</title>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+
+        class Ejerc extends React.Component {
+
+            constructor(props) {
+                super(props);
+                this.state = {
+                    visibility: false
+                };
+                this.toggleVisibility = this.toggleVisibility.bind(this);
+            }
+
+
+            toggleVisibility() {
+                if (!this.state.visibility) {
+                    this.setState({
+                        visibility: true
+                    });
+                } else {
+                    this.setState({
+                        visibility: false
+                    });
+                }
+            }
+            render() {
+                if (this.state.visibility) {
+                    return (
+                        <div>
+                            <button onClick={this.toggleVisibility}>Click Me</button>
+                            <h1>Now you see me!</h1>
+                        </div>
+                    );
+                } else {
+                    return (
+                        <div>
+                            <button onClick={this.toggleVisibility}>Click Me</button>
+                        </div>
+                    );
+                }
+            }
+        }
+
+        ReactDOM.render(<Ejerc />, document.getElementById('root'))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>KTPC</title>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        const inputStyle = {
+            width: 235,
+            margin: 5
+        }
+
+        class Colorful extends React.Component {
+
+            constructor(props) {
+                super(props);
+                this.state = {
+                    input: ''
+                };
+                this.handleChange = this.handleChange.bind(this);
+            }
+
+            handleChange(event) {
+                this.setState({ input: event.target.value })
+            }
+
+            render() {
+
+                let inputStyle = {
+                    border: '1px solid black'
+                };
+                // change code below this line
+                const char = 15;
+                if (this.state.input.length > char) {
+                    { inputStyle = { border: '3px solid red' } }
+                }
+
+                return (<div>
+                    <h3>Don't Type Too Much:</h3>
+                    <input
+                        type="text"
+                        style={inputStyle}
+                        value={this.state.input}
+                        onChange={this.handleChange} />
+                </div>)
+            }
+        };
+
+        ReactDOM.render(<Colorful />, document.getElementById('root'))
+    </script>
+</body>
+
+</html>

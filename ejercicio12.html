@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>KTPC</title>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        class Fruits extends React.Component {
+            constructor(props) {
+                super(props);
+            }
+            render() {
+                return (
+                    <div>
+                        <h2>Fruits:</h2>
+                        { /*   <NonCitrus />
+                        <Citrus />
+                        */}
+                    </div>
+                );
+            }
+        };
+
+
+        class Ejerc extends React.Component {
+
+            constructor(props) {
+                super(props);
+            }
+
+            render() {
+                return <div>
+                    <h1>Types of Food:</h1>
+                    <Fruits />
+                    <h1>comida</h1>
+                    {  /*  <Vegetables />*/}
+
+                </div>
+            }
+        }
+
+        ReactDOM.render(<Ejerc />, document.getElementById('root'))
+    </script>
+</body>
+
+</html>

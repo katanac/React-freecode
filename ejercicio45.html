@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>KTPC</title>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        const frontEndFrameworks = [
+            'React',
+            'Angular',
+            'Ember',
+            'Knockout',
+            'Backbone',
+            'Vue'
+        ];
+
+
+        function Frameworks() {
+            const renderFrameworks = frontEndFrameworks.map(
+                (items) => <li key={items.toString()}>{items}</li>
+            );
+
+            return (
+                <div>
+                    <h1>Popular Front End JavaScript Frameworks</h1>
+                    <ul>
+                        {renderFrameworks}
+                    </ul>
+                </div>
+            );
+        };
+
+
+        class Colorful extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    users: [
+                        {
+                            username: 'Jeff',
+                            online: true
+                        },
+                        {
+                            username: 'Alan',
+                            online: false
+                        },
+                        {
+                            username: 'Mary',
+                            online: true
+                        },
+                        {
+                            username: 'Jim',
+                            online: false
+                        },
+                        {
+                            username: 'Sara',
+                            online: true
+                        },
+                        {
+                            username: 'Laura',
+                            online: true
+                        }
+                    ]
+                }
+            }
+            render() {
+
+                const usersOnline = this.state.users.filter(user => user.online);
+                const renderOnline = usersOnline.map((user) => <li key={user.username.toString()}>{user.username}</li>);
+
+                return (<div>
+                    <h1>Current Online Users:</h1>
+                    <ul>
+                        {renderOnline}
+                    </ul>
+                </div>)
+            }
+        };
+
+        ReactDOM.render(<Colorful />, document.getElementById('root'))
+    </script>
+</body>
+
+</html>
